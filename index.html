@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>خاکِ خاموش</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle, #000000, #1a1a1a);
+    color: white;
+    font-family: Tahoma, sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#container {
+    position: absolute;
+    bottom: -200px;
+    animation: rise 6s ease-in forwards;
+}
+
+@keyframes rise {
+    from { bottom: -200px; opacity: 0; }
+    to { bottom: 70%; opacity: 1; }
+}
+
+.name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.quote {
+    font-size: 20px;
+    line-height: 1.8;
+}
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="container">
+    <div class="name" id="name"></div>
+    <div class="quote" id="quote"></div>
+</div>
+
+<script>
+const martyrs = [
+    {name: "خاکِ خاموش", quote: "از خاک، تا افلاک…"},
+    {name: "شهید مصطفی چمران", quote: "خدایا، مرا از کسانی قرار بده که درد دارند."},
+    {name: "شهید مهدی باکری", quote: "راه، راه حسین است و پایانش شهادت."}
+];
+
+const random = martyrs[Math.floor(Math.random() * martyrs.length)];
+document.getElementById("name").innerText = random.name;
+document.getElementById("quote").innerText = random.quote;
+</script>
+
+</body>
+</html>
